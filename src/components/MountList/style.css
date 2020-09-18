@@ -18,3 +18,16 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+button {
+  border: none;
+  background: none;
+}
+
+button.active {
+  border-bottom: 1px solid red;
+}
+
+button:focus {
+  outline: none;
+}

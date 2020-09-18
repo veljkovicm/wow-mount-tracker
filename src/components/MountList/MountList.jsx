@@ -4,6 +4,7 @@ const MountList = (props) => {
   let { mounts, userMounts } = props;
 
   const [ filter, setFilter ] = useState();
+  const [ active, setActive ] = useState();
   
   let count = userMounts.length;
   
@@ -37,6 +38,7 @@ const MountList = (props) => {
   )
 
   const handleButton = (event) => {
+    setActive(event.target.name);
     if(event.target.name === 'collected' || event.target.name === 'uncollected') {
       setFilter(event.target.name);
     } else {
