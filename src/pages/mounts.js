@@ -13,17 +13,26 @@ import '../components/MountList/style.css';
 const Mounts = () => {
   const [ userMounts, setUserMounts ] = useState();
   const [ loading, setLoading ] = useState(true);
+  const [ error, setError ] = useState(false);
   const params = useParams();
 
   const { region, realm, character } = params;
-
   useEffect(() => {
     getMounts(region, realm, character).then(res => {
       console.log('CALLED');
       setUserMounts(res);
       setLoading(false);
+    })
+    .catch(() => {
+      setError(true);
+      setLoading(false);
     });
-  },[region, realm, character]);
+  },[
+    region,
+    realm,
+    character,
+    error,
+  ]);
   
   let mountsArr = [];
 
@@ -36,7 +45,8 @@ const Mounts = () => {
       <Header>
         <Form />
       </Header>
-      { loading ? <Loading /> : <MountList mounts={mountsArr} userMounts={userMounts} /> }
+      {/* TODO: Add 404 component */}
+      { loading ? <Loading /> : error ? <p>Not found!</p> : <MountList mounts={mountsArr} userMounts={userMounts} /> }
     </Fragment>
   )
 }
