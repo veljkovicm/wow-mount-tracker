@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '../config/config';
+import config from '../config/config.js';
 
 export const getToken = async () => {
    const accessToken =  await axios.get(`https://eu.battle.net/oauth/token`, {
