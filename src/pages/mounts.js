@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMounts } from '../actions/actions';
 import MountList from '../components/MountList/MountList.jsx';
-import mountsIndex from '../data/merged';
+import mountsIndex from '../data/mounts';
 import Loading from '../components/Loading.jsx';
 import Form from '../components/Form/Form';
 import Header from '../components/Header/Header.jsx';

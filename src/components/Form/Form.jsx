@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import SelectSearch from 'react-select-search';
-import { realmsEU, realmsUS } from '../../data/realmsSortedSeparate';
+import { realmsEU, realmsUS } from '../../data/realms';
 
 import '../../App.css';
 import './form.css';
