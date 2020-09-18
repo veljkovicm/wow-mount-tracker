@@ -4,7 +4,7 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 
-import { getToken } from '../actions/actions.js';
+import { getToken } from './actions.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
