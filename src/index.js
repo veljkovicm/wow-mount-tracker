@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App htmlAttributes={{ lang : 'en' }} />
   </React.StrictMode>,
   document.getElementById('root')
 );

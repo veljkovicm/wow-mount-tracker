@@ -1,0 +1,14 @@
+.header-bar {
+  position: relative;
+  width: 100%;
+  height: 60px;
+}
+
+.header-bar a {
+  display: block;
+  max-width: 100px;
+}
+
+.header-bar form {
+  flex-direction: row;
+}
