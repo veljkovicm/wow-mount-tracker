@@ -61,7 +61,7 @@ const Form = () => {
     <div className="form-wrapper">
       <form onSubmit={handleSubmit}>
         <input type="text" name="character" placeholder="Character name" onChange={handleChange} value={userData.character} />
-        <SelectSearch options={options} name="testname" search value="sv" onChange={handleSelect} name="realm" placeholder="Choose your realm" />
+        <SelectSearch options={options} search value="sv" onChange={handleSelect} name="realm" placeholder="Choose your realm" />
         <button type="submit" disabled={!isFormValid}>submit</button>
       </form>
     </div>
