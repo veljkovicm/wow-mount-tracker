@@ -25,12 +25,12 @@ const getRealms = async () => {
   .catch(err => console.log(err));
 
   getEU.data.realms.map(realm => {
-    realm.value = `${realm.slug}-eu`;
+    realm.value = `${realm.slug}+eu`;
     delete realm.key;
   })
-  console.log('REALMS',getEU.data.realms);
+
+  // TODO export sorting as helper function
   const sortedEU = getEU.data.realms.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
-  fs.appendFileSync(__dirname + '/realmsSortedSeparate.js', `export const realmsEU = ${JSON.stringify(sortedEU, null, 2)};\n`, {'flags': 'a+'}, () => {});
 
 
   const getUS = await axios.get(
@@ -48,26 +48,16 @@ const getRealms = async () => {
     
   getUS.data.realms.map(realm => {
     // realm.region = 'us';
-    realm.value = `${realm.slug}-us`;
+    realm.value = `${realm.slug}+us`;
     delete realm.key;
   });
   // const sorted = realms.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
-  
-  const realms = [
-    ...getEU.data.realms,
-    ...getUS.data.realms
-  ];
 
   const sortedUS = getUS.data.realms.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
   const writeString = `export const realmsEU = ${JSON.stringify(sortedEU, null, 2)};\n export const realmsUS = ${JSON.stringify(sortedUS, null, 2)};\n`
 
 
   fs.writeFile(__dirname + '/realmsSortedSeparate.js', writeString, () => {});
-  
-  
-  // fs.writeFile(__dirname + '/realmsSorted.js', `export const realms = ${JSON.stringify(sorted, null, 2)}`, () => {});
-
-  // fs.writeFile(__dirname + '/realmsSorted.js', `export const realms = ${JSON.stringify(realms, null, 2)}`, () => {});
 }
 
 getRealms();
