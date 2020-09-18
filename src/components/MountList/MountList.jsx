@@ -28,11 +28,11 @@ const MountList = (props) => {
   let markup = (
     filteredMounts.map((mount, i) => {
       return <div className={`mount-item ${mount.collected ? 'collected': ''}`} key={i}>
+        <div
+          className="mount-item-image"
+          style={{backgroundImage:`url(https://render-us.worldofwarcraft.com/npcs/zoom/creature-display-${mount.creature_displays[0].id}.jpg)`}}>
+          </div>
           <p>{mount.name}</p>
-          <p>{mount.id}</p>
-          <img
-            src={`https://render-us.worldofwarcraft.com/npcs/zoom/creature-display-${mount.creature_displays[0].id}.jpg`}
-            alt="mount" />
       </div>
     })
   )
