@@ -30,8 +30,8 @@ const Form = () => {
   const handleSelect = (value) => {
     setUserData({
       ...userData,
-      region: value.split('-')[1],
-      realm: value.split('-')[0],
+      region: value.split('+')[1],
+      realm: value.split('+')[0],
     });
   }
 
