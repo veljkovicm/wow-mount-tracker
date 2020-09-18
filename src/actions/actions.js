@@ -48,12 +48,3 @@ export const getMounts = async (region = 'eu', realm = 'kazzak', character = 'gi
   
   return mountIDsArray;
 }
-
-// const doStuff = async () => {
-//   const x = await getToken();
-
-//   console.log(x);
-// }
-
-// doStuff();
-
