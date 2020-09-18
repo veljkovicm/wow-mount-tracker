@@ -1,10 +1,10 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState } from 'react'
 import './style.css';
 const MountList = (props) => {
   let { mounts, userMounts } = props;
 
   const [ filter, setFilter ] = useState();
-  const [ active, setActive ] = useState();
+  const [ active, setActive ] = useState('all');
   
   let count = userMounts.length;
   
@@ -47,7 +47,7 @@ const MountList = (props) => {
   }
 
   return (
-    <Fragment>
+    <div className="mounts">
       <div className="controls-wrapper">
         <p>Count: {count}</p>
         <button onClick={handleButton} name="all" className={active === 'all' ? 'active' : ''}>all</button>
@@ -57,7 +57,7 @@ const MountList = (props) => {
       <div className="mount-list__wrapper">
         {markup}
       </div>
-    </Fragment>
+    </div>
   );
 }
 
