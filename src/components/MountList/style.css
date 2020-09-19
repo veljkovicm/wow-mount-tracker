@@ -1,8 +1,14 @@
+@font-face {
+  font-family: semplicita-pro;
+  font-weight: bold;
+  src: url("/SemplicitaPro-Bold.otf") format("opentype");
+}
 
 .mounts {
   min-height: 100vh;
 }
 .mount-item {
+  font-family: semplicita-pro;
   width: 15%;
   margin: 15px 10px;
   background: #181818;
@@ -12,6 +18,7 @@
   opacity: 0.3;
   cursor: pointer;
   border: 1px solid #181818;
+  position: relative;
 }
 .mount-item.collected {
   opacity: 1;
@@ -20,13 +27,15 @@
   border: 1px solid #f8b700;
   color: #f8b700;
 }
-
+.mounts button {
+  font-family: semplicita-pro;
+  color: #f8b700;
+}
 .mount-item-image {
   min-height: 185px;
   width: 100%;
   background-size: cover;
   background-position: center;
-
   transition: all 0.2s ease-in-out;
 }
 
@@ -34,7 +43,13 @@
   transform: scale(1.1);
 }
 
-
+.mount-item img {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0.5;
+  width: 70px;
+}
 
 .mount-list__wrapper {
   max-width: 1320px;
@@ -44,15 +59,17 @@
   flex-wrap: wrap;
 }
 
-button {
+.mounts button {
   border: none;
   background: none;
   color: white;
   cursor: pointer;
+  padding-bottom: 5px;
 }
 
 button.active {
-  border-bottom: 1px solid red;
+  border-bottom: 4px solid#f8b700;
+  color: white;
 }
 
 button:focus {
@@ -60,4 +77,22 @@ button:focus {
 }
 button:disabled {
   cursor: not-allowed;
+}
+.controls-wrapper {
+  display: inline-block;
+}
+.controls-wrapper:after {
+  display: block;
+  width: 100%;
+  height: 2px;
+  content: "";
+  border-bottom:1px solid rgba(255,255,255,0.2);
+  margin-top: -4px;
+}
+
+.controls-wrapper button:first-child {
+  padding-left: 0;
+}
+.controls-wrapper button:last-child {
+  padding-right: 0;
 }

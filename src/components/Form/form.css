@@ -107,6 +107,7 @@ form {
   font-size: 14px;
   text-align: left;
   cursor: pointer;
+  color: #2eb378;
 }
 
 .select-search--multiple .select-search__option {

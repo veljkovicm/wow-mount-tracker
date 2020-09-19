@@ -6,7 +6,7 @@
   text-align: center;
   background: url('/pane-bg.jpg') no-repeat;
   background-size: cover;
-  color: white;
+  min-height: 100vh;
 }
 
 img {
