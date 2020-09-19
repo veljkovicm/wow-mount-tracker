@@ -48,3 +48,48 @@ export const getMounts = async (region = 'eu', realm = 'kazzak', character = 'gi
   
   return mountIDsArray;
 }
+
+export const getAvatar = async (region, realm, character) => {
+  const token = await getToken();
+
+  const charMedia = await axios.get(
+    `https://${region}.api.blizzard.com/profile/wow/character/${realm}/${character}/character-media`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      params: {
+        namespace: `profile-${region}`,
+        locale: 'en_GB',
+      }
+    }
+  );
+  return charMedia.data.avatar_url;
+}
+
+export const getCharData = async (region, realm, character) => {
+  const token = await getToken();
+
+  const charData = await axios.get(
+    `https://${region}.api.blizzard.com/profile/wow/character/${realm}/${character}`, 
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      params: {
+        namespace: `profile-${region}`,
+        locale: 'en_GB',
+      }
+    }
+  );
+  const avatarUrl = await getAvatar(region, realm, character);
+
+  return {
+    faction: charData.data.faction.name,
+    class: charData.data.character_class.name,
+    guild: charData.data.guild.name,
+    guildId: charData.data.guild.id,
+    level: charData.data.level,
+    avatar: avatarUrl,
+  }
+}
