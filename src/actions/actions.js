@@ -85,11 +85,14 @@ export const getCharData = async (region, realm, character) => {
   const avatarUrl = await getAvatar(region, realm, character);
 
   return {
-    faction: charData.data.faction.name,
-    class: charData.data.character_class.name,
+    charClass: charData.data.character_class.name,
     guild: charData.data.guild.name,
     guildId: charData.data.guild.id,
     level: charData.data.level,
     avatar: avatarUrl,
+    title: charData.data.active_title.name,
+    activeSpec: charData.data.active_spec.name,
+    name: charData.data.name,
+    realm: charData.data.realm.name,
   }
 }
