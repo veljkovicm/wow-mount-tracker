@@ -3,6 +3,7 @@ import './style.css';
 const MountList = (props) => {
   let { mounts, userMounts } = props;
 
+  // set default filter and active to 'collected'
   const [ filter, setFilter ] = useState();
   const [ active, setActive ] = useState('all');
   const [ search, setSearch ] = useState('');
@@ -60,15 +61,17 @@ const MountList = (props) => {
 
   return (
     <div className="mounts">
-      <div>
-        <div className="controls-wrapper">
+      {/* Export controls to separate component */}
+      {/* perc = ((pEarned/pPos) * 100).toFixed(3); */}
+      <div className="controls-wrapper">
+        <div className="filters-wrapper">
           <p>Count: {count}</p>
           <button onClick={handleButton} name="all" className={active === 'all' ? 'active' : ''}>All</button>
           <button onClick={handleButton} name="collected" className={active === 'collected' ? 'active' : ''}>Collected</button>
           <button onClick={handleButton} name="uncollected" className={active === 'uncollected' ? 'active' : ''}>Uncollected</button>
         </div>
-        <div>
-          <input type="text" name="search" value={search} onChange={handleSearch}/>
+        <div className="search-wrapper">
+          <input type="text" name="search" value={search} onChange={handleSearch} placeholder="Mount name" />
         </div>
       </div>
       <div className="mount-list__wrapper">
