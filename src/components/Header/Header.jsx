@@ -8,9 +8,11 @@ export default function Header(props) {
 
   return (
     <div className="header-bar">
-      <Link to="/">
-        <img src="/Shadowlands_Logo.png" alt=""/>
-      </Link>
+      <div className="header-bar__logo">
+        <Link to="/">
+          <img src="/Shadowlands_Logo.png" alt="shadowlands-logo" />
+        </Link>
+      </div>
       {children}
     </div>
   )
