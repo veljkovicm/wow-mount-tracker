@@ -6,6 +6,8 @@
 
 .mounts {
   min-height: 100vh;
+  max-width: 1320px;
+  margin: 0 auto;
 }
 .mount-item {
   font-family: semplicita-pro;
@@ -79,9 +81,17 @@ button:disabled {
   cursor: not-allowed;
 }
 .controls-wrapper {
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 15px 15px;
 }
-.controls-wrapper:after {
+
+.filters-wrapper {
+  display: inline-block;
+  color: #fff;
+}
+.filters-wrapper:after {
   display: block;
   width: 100%;
   height: 2px;
@@ -90,9 +100,25 @@ button:disabled {
   margin-top: -4px;
 }
 
-.controls-wrapper button:first-child {
+.filters-wrapper button:first-child {
   padding-left: 0;
 }
-.controls-wrapper button:last-child {
+.filters-wrapper button:last-child {
   padding-right: 0;
+}
+
+.search-wrapper input {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #f8b700;
+  transition: all 0.2s linear;
+  padding-left: 40px;
+  background: url('/search.png') no-repeat 10px center;
+  background-size: 20px;
+  color: #fff;
+}
+.search-wrapper input:hover,
+.search-wrapper input:focus {
+  border: 1px solid #fff;
+  outline: none;
 }

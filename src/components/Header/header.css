@@ -4,9 +4,12 @@
   height: 60px;
   max-width: 1320px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
 }
 
-.header-bar a {
+.header-bar__logo a {
   display: block;
   max-width: 100px;
 }

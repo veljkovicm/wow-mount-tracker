@@ -1,0 +1,43 @@
+.character-bar {
+  font-family: semplicita-pro;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 0;
+}
+
+.character-bar p {
+  margin: 0;
+}
+.character-bar__avatar {
+  margin-right: 10px;
+}
+.character-bar__title {
+  display: block;
+  max-width: 150px;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.character-bar__name {
+  transition: all 0.2s ease-in-out;
+}
+
+.character-bar__guild a {
+  color: #f8b700;
+  transition: all 0.2s ease-in-out;
+}
+.character-bar a:hover,
+.character-bar__name:hover {
+  color: #fff !important;
+}
+.character-bar__name-wrapper {
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+
