@@ -3,9 +3,8 @@ import './style.css';
 const MountList = (props) => {
   let { mounts, userMounts } = props;
 
-  // set default filter and active to 'collected'
-  const [ filter, setFilter ] = useState();
-  const [ active, setActive ] = useState('all');
+  const [ filter, setFilter ] = useState('collected');
+  const [ active, setActive ] = useState('collected');
   const [ search, setSearch ] = useState('');
   
   let count = userMounts.length;
@@ -65,7 +64,7 @@ const MountList = (props) => {
       {/* perc = ((pEarned/pPos) * 100).toFixed(3); */}
       <div className="controls-wrapper">
         <div className="filters-wrapper">
-          <p>Count: {count}</p>
+          <p><b>Mounts:</b> {count} Mounts {filter === 'uncollected' ? 'Uncollected' : 'Collected'}</p>
           <button onClick={handleButton} name="all" className={active === 'all' ? 'active' : ''}>All</button>
           <button onClick={handleButton} name="collected" className={active === 'collected' ? 'active' : ''}>Collected</button>
           <button onClick={handleButton} name="uncollected" className={active === 'uncollected' ? 'active' : ''}>Uncollected</button>
