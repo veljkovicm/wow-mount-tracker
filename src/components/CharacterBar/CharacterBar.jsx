@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import  './characterBar.css';
 import classColors from './classColors';
 
@@ -68,6 +70,16 @@ const CharacterBar = (props) => {
   )
 }
 
-// PropTypes
+CharacterBar.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  charClass: PropTypes.string.isRequired,
+  activeSpec: PropTypes.string.isRequired,
+  guild: PropTypes.string.isRequired,
+  level: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  realm: PropTypes.string.isRequired,
+  region: PropTypes.string.isRequired,
+}
 
 export default CharacterBar;

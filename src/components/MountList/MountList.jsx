@@ -81,6 +81,9 @@ const MountList = (props) => {
   );
 }
 
-// PropTypes
+MountList.propTypes = {
+  mounts: PropTypes.array.isRequired,
+  userMounts: PropTypes.array.isRequired,
+}
 
 export default MountList;
