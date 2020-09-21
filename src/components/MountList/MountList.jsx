@@ -1,5 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import MountItem from '../MountItem/MountItem';
+import ProgressBar from '../ProgressBar/ProgressBar.jsx';
 import './style.css';
+
 const MountList = (props) => {
   let { mounts, userMounts } = props;
 
@@ -17,7 +21,6 @@ const MountList = (props) => {
       mount.uncollected = true;
     }
   })
-  // mounts = mounts.filter(mount => mount.uncollected);
   
   if(filter) {
     filteredMounts = mounts.filter(mount => mount[filter] === true);
@@ -30,28 +33,13 @@ const MountList = (props) => {
     );
   }
 
-  let markup = (
-    filteredMounts.map((mount, i) => {
-      return <div className={`mount-item ${mount.collected ? 'collected': ''}`} key={i}>
-        <div
-          className="mount-item-image"
-          style={{
-            backgroundImage:`url(https://render-us.worldofwarcraft.com/npcs/zoom/creature-display-${mount.creature_displays[0].id}.jpg)`
-          }}
-        >
-        </div>
-        { mount.faction ? <img src={`/${mount.faction.name}.png`} alt="faction-symbol" /> : null }
-        <p>{mount.name}</p>
-      </div>
-    })
-  )
   const handleSearch = (event) => {
     setSearch(event.target.value);
   }
 
   const handleButton = (event) => {
     setActive(event.target.name);
-    if(event.target.name === 'collected' || event.target.name === 'uncollected') {
+    if(event.target.name !== 'all') {
       setFilter(event.target.name);
     } else {
       setFilter(null);
@@ -60,8 +48,6 @@ const MountList = (props) => {
 
   return (
     <div className="mounts">
-      {/* Export controls to separate component */}
-      {/* perc = ((pEarned/pPos) * 100).toFixed(3); */}
       <div className="controls-wrapper">
         <div className="filters-wrapper">
           <p><b>Mounts:</b> {count} Mounts {filter === 'uncollected' ? 'Uncollected' : 'Collected'}</p>
@@ -69,12 +55,19 @@ const MountList = (props) => {
           <button onClick={handleButton} name="collected" className={active === 'collected' ? 'active' : ''}>Collected</button>
           <button onClick={handleButton} name="uncollected" className={active === 'uncollected' ? 'active' : ''}>Uncollected</button>
         </div>
+        <ProgressBar collectedMounts={userMounts.length} totalMounts={mounts.length} />
         <div className="search-wrapper">
-          <input type="text" name="search" value={search} onChange={handleSearch} placeholder="Mount name" />
+          <input
+            type="text"
+            name="search"
+            value={search}
+            onChange={handleSearch}
+            placeholder="Mount name"
+          />
         </div>
       </div>
       <div className="mount-list__wrapper">
-        {markup}
+        <MountItem mounts={filteredMounts} />
       </div>
     </div>
   );
