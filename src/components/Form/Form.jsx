@@ -5,6 +5,7 @@ import { realmsEU, realmsUS } from '../../data/realms';
 
 import '../../App.css';
 import './form.css';
+
 const Form = () => {
   const [ isFormValid, setIsFormValid ] = useState(false);
   const history = useHistory();
@@ -60,9 +61,24 @@ const Form = () => {
   return (
     <div className="form-wrapper">
       <form onSubmit={handleSubmit}>
-        <input type="text" name="character" placeholder="Character name" onChange={handleChange} value={userData.character} />
-        <SelectSearch options={options} search value="sv" onChange={handleSelect} name="realm" placeholder="Choose your realm" />
-        <button type="submit" disabled={!isFormValid}>submit</button>
+        <label htmlFor="character">Character name</label>
+        <input
+          type="text"
+          name="character"
+          placeholder="Character name"
+          onChange={handleChange}
+          value={userData.character}
+        />
+        <label htmlFor="realm">Realm</label> 
+        <SelectSearch
+          options={options}
+          search
+          value="sv"
+          onChange={handleSelect}
+          name="realm"
+          placeholder="Choose your realm"
+        />
+        <button type="submit" disabled={!isFormValid}>Search</button>
       </form>
     </div>
   )
