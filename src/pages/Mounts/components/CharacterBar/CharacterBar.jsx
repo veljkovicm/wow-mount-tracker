@@ -17,10 +17,13 @@ const CharacterBar = (props) => {
     region,
   } = props;
 
+  let guildLink;
   const locale = region === 'eu' ? 'gb' : 'us';
 
   const characterLink = `https://worldofwarcraft.com/en-${locale}/character/${region}/${realm}/${name}`;
-  const guildLink = `https://worldofwarcraft.com/en-${locale}/guild/${region}/${realm}/${guild.replace(" ", "-")}`;
+  if (guild) {
+    guildLink = `https://worldofwarcraft.com/en-${locale}/guild/${region}/${realm}/${guild.replace(" ", "-")}`;
+  }
 
   return (
     <div className="character-bar">
@@ -56,13 +59,18 @@ const CharacterBar = (props) => {
         <span>{level}</span>
         <span>{` ${activeSpec}  ${charClass} `}</span>
         <div className="character-bar__guild">
-          <a
-            href={guildLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ❮{guild}❯
-          </a>
+          {
+            guild ?
+              <a
+                href={guildLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ❮{guild}❯
+              </a>
+            :
+              null
+          }
           <span>{` ${realm}`}</span>
         </div>
       </div>
@@ -71,12 +79,12 @@ const CharacterBar = (props) => {
 }
 
 CharacterBar.propTypes = {
-  avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
   charClass: PropTypes.string.isRequired,
   activeSpec: PropTypes.string.isRequired,
-  guild: PropTypes.string.isRequired,
+  guild: PropTypes.string,
   level: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   name: PropTypes.string.isRequired,
   realm: PropTypes.string.isRequired,
   region: PropTypes.string.isRequired,

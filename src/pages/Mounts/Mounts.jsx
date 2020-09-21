@@ -1,14 +1,14 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMounts, getCharData } from '../actions/actions';
-import MountList from '../components/MountList/MountList.jsx';
-import mountsIndex from '../data/mounts';
-import Loading from '../components/Loading.jsx';
-import Form from '../components/Form/Form';
-import Header from '../components/Header/Header.jsx';
-import CharacterBar from '../components/CharacterBar/CharacterBar.jsx';
-
-import '../components/MountList/style.css';
+import { getMounts, getCharData } from '../../actions/actions';
+import mountsIndex from '../../data/mounts';
+import Form from '../../components/Form/Form';
+import {
+  CharacterBar,
+  Header,
+  Loading,
+  MountList,
+} from './components';
 
 
 const Mounts = () => {

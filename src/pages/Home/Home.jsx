@@ -1,7 +1,7 @@
 import React from 'react';
-import Form from '../components/Form/Form';
+import Form from '../../components/Form/Form';
 
-import '../App.css';
+import './home.css';
 
 const Home = () => {
   return (

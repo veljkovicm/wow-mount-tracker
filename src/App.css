@@ -27,32 +27,3 @@ a {
 img {
   max-width: 100%;
 }
-
-.home-container {
-  background-image: url('/shadowlands-login-screen-min.png');
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  position: relative;
-}
-
-.home-container form {
-  display: flex;
-  flex-direction: column;
-}
-
-.home-container form button {
-  margin-top: 20px;
-}
-
-.home-container form input::placeholder {
-  color: rgb(104,121,115);
-}
-
-.home-container form label {
-  margin: 15px 0;
-}
-
-.home-container form input[type="text"]::placeholder {
-  font-size: 0;
-}
