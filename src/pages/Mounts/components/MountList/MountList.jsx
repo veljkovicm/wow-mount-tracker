@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import MountItem from '../MountItem/MountItem';
-import ProgressBar from '../ProgressBar/ProgressBar.jsx';
+import {
+  MountItem,
+  ProgressBar,
+} from '../';
+
 import './style.css';
 
 const MountList = (props) => {

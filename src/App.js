@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import './App.css';
-
 // Pages
-import Home from './pages/home';
-import Mounts from './pages/mounts';
+import { Home, Mounts } from './pages';
 
+
+import './App.css';
 
 function App() {
   return (

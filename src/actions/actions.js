@@ -60,6 +60,8 @@ export const getAvatar = async (region, realm, character) => {
 }
 
 export const getCharData = async (region, realm, character) => {
+  let guild, guildId, title;
+
   const token = await getToken();
 
   const charData = await axios.get(
@@ -76,13 +78,23 @@ export const getCharData = async (region, realm, character) => {
   );
   const avatarUrl = await getAvatar(region, realm, character);
 
+
+  if(charData.data.guild) {
+    guild = charData.data.guild.name;
+    guildId = charData.data.guild.id;
+  }
+
+  if(charData.data.active_title) {
+    title = charData.data.active_title.name;
+  }
+
   return {
     charClass: charData.data.character_class.name,
-    guild: charData.data.guild.name,
-    guildId: charData.data.guild.id,
+    guild: guild,
+    guildId: guildId,
     level: charData.data.level,
     avatar: avatarUrl,
-    title: charData.data.active_title.name,
+    title: title,
     activeSpec: charData.data.active_spec.name,
     name: charData.data.name,
     realm: charData.data.realm.name,

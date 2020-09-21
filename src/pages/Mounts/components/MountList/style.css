@@ -1,4 +1,3 @@
-
 .mounts {
   min-height: 100vh;
   max-width: 1320px;
@@ -9,7 +8,6 @@
   font-family: semplicita-pro;
   color: #f8b700;
 }
-
 
 .mount-list__wrapper {
   max-width: 1320px;
