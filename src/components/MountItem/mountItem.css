@@ -1,0 +1,40 @@
+.mount-item {
+  font-family: semplicita-pro;
+  width: 15%;
+  margin: 15px 10px;
+  background: #181818;
+  color: white;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.3;
+  cursor: pointer;
+  border: 1px solid #181818;
+  position: relative;
+}
+.mount-item.collected {
+  opacity: 1;
+}
+.mount-item:hover {
+  border: 1px solid #f8b700;
+  color: #f8b700;
+}
+
+.mount-item-image {
+  min-height: 185px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.mount-item:hover .mount-item-image {
+  transform: scale(1.1);
+}
+
+.mount-item img {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0.5;
+  width: 70px;
+}
