@@ -21,9 +21,7 @@ const Mounts = () => {
   const { region, realm, character } = params;
   useEffect(() => {
     getMounts(region, realm, character).then(res => {
-      console.log('CALLED');
       setUserMounts(res);
-      
     })
     .catch(() => {
       setError(true);
