@@ -17,3 +17,7 @@
 .header-bar form {
   flex-direction: row;
 }
+
+.header-bar form label {
+  display: none;
+}

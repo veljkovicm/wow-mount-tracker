@@ -1,26 +1,29 @@
 .character-bar {
-  font-family: semplicita-pro;
-  display: flex;
-  flex-direction: row;
   position: absolute;
   top: 0;
   right: 0;
+  display: flex;
+  flex-direction: row;
   padding: 10px 0;
+  font-family: semplicita-pro;
+  color: #fff;
 }
 
 .character-bar p {
   margin: 0;
 }
+
 .character-bar__avatar {
   margin-right: 10px;
 }
+
 .character-bar__title {
   display: block;
   max-width: 150px;
   font-size: 12px;
   text-overflow: ellipsis;
-  overflow:hidden;
-  white-space:nowrap;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .character-bar__name {

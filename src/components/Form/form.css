@@ -2,6 +2,49 @@ form {
   display: flex;
 }
 
+.form-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-wrapper form > button {
+  background: #8C0000;
+  color: rgb(255,199,0);
+  border: 3px solid #687973;
+  border-radius: 5px;
+  padding: 5px 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-wrapper form > button:disabled {
+  background: #687973;
+  color: #fff;
+  cursor: not-allowed;
+}
+.form-wrapper form > button:focus {
+  border-color: #FFC700;
+}
+
+.form-wrapper input {
+  border: 3px solid #687973;
+  height: 30px;
+}
+
+.form-wrapper label {
+  color: #FFC700;
+  font-weight: bold;
+  line-height: 16px;
+}
+
+
+
+/***************************/
+/** SELECT SEARCH STYLING **/
+/***************************/
+
 /**
  * Main wrapper
  */
@@ -166,8 +209,8 @@ form {
 
 .select-search:not(.is-loading):not(.select-search--multiple) .select-search__value::after {
   transform: rotate(45deg);
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   pointer-events: none;
 }
 
