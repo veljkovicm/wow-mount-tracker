@@ -1,0 +1,74 @@
+.progress-bar__wrapper {
+  position: relative;
+  width: 200px;
+  height: 20px;
+  overflow: hidden;
+  border: 2px solid #808080;
+  border-radius: 20px;
+  color: #fff;
+}
+.progress-bar__filler {
+  position: absolute;
+  left: 0;
+  top: -2px;
+  height: 20px;
+  z-index: 2;
+  background: #008000;
+  border: 1px solid transparent;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 17px;
+}
+
+.progress-bar__label {
+  font-family: semplicita-pro-normal;
+  display: inline-block;
+  margin: 0 0 2px;
+  font-size: 12px;
+  color: #fff;
+}
+.progress-bar__wrapper i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  padding-bottom: 2px;
+  font-size: 12px;
+}
+.progress-bar__notice-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 3px 7px;
+  padding: 5px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 7px;
+  color: #fff;
+  cursor: pointer;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.progress-bar__notice-wrapper span {
+  font-family: semplicita-pro-normal;
+  position: absolute;
+  top: 0;
+  right: -140px;
+  display: none;
+  width: 130px;
+  height: 50px;
+  background: #fff;
+  color: #000;
+  padding: 7px;
+  z-index: 999;
+  line-height: 12px;
+  border-radius: 10px;
+  font-style: normal;
+}
+
+div.progress-bar__notice-wrapper:hover span {
+  display: block;
+}
