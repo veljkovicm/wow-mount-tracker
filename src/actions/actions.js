@@ -1,11 +1,11 @@
 import axios from 'axios';
-import config from '../config/config.js';
+// import config from '../config/config.js';
 
 export const getToken = async () => {
    const accessToken =  await axios.get(`https://eu.battle.net/oauth/token`, {
     auth: {
-      username: config.publicKey,
-      password: config.secretKey,
+      username: NODE_ENV .PUBLIC_KEY,
+      password: NODE_ENV .SECRET_KEY,
     },
     params: {
       grant_type: 'client_credentials',
