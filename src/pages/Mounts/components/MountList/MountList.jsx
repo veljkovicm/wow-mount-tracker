@@ -19,9 +19,9 @@ const MountList = (props) => {
   let filteredMounts = mounts;
   mounts.map((mount, i) => {
     if(userMounts.includes(mount.id)) {
-      mount.collected = true;
+      return mount.collected = true;
     } else {
-      mount.uncollected = true;
+      return mount.uncollected = true;
     }
   })
   
