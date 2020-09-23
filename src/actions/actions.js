@@ -4,8 +4,8 @@ import axios from 'axios';
 export const getToken = async () => {
    const accessToken =  await axios.get(`https://eu.battle.net/oauth/token`, {
     auth: {
-      username: REACT_APP_PUBLIC_KEY,
-      password: REACT_APP_SECRET_KEY,
+      username: process.env.REACT_APP_PUBLIC_KEY,
+      password: process.env.REACT_APP_SECRET_KEY,
     },
     params: {
       grant_type: 'client_credentials',
