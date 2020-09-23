@@ -4,7 +4,7 @@ form {
 
 .form-wrapper {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 90px);
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -12,11 +12,12 @@ form {
 .form-wrapper form > button {
   background: #8C0000;
   color: rgb(255,199,0);
-  border: 3px solid #687973;
+  border: 2px solid #687973;
   border-radius: 5px;
   padding: 5px 0;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 30px;
 }
 
 .form-wrapper form > button:disabled {
@@ -29,14 +30,21 @@ form {
 }
 
 .form-wrapper input {
-  border: 3px solid #687973;
+  border: 2px solid #687973;
+  border-radius: 6px;
   height: 30px;
+  width: 265px;
+  background: rgba(0,0,0,0.8);
+  margin: 0 0 15px;
+  color: #fff;
+  padding-left: 10px;
 }
 
 .form-wrapper label {
   color: #FFC700;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 16px;
+  margin-bottom: 5px;
 }
 
 
@@ -49,7 +57,7 @@ form {
  * Main wrapper
  */
  .select-search {
-  width: 200px;
+  width: 265px;
   position: relative;
   font-family: 'Nunito Sans', sans-serif;
   box-sizing: border-box;

@@ -14,8 +14,30 @@
   max-width: 100px;
 }
 
+.header-bar .form-wrapper {
+  top: 50%;
+}
+
+.header-bar .btn {
+  margin-top: 0px;
+  height: 20px;
+  margin-left: 20px;
+  width: 100px;
+  padding: 0;
+}
+
 .header-bar form {
   flex-direction: row;
+  align-items: center;
+}
+
+.header-bar  .select-search {
+  width: 200px;
+}
+
+.header-bar form input {
+  width: 200px;
+  margin: 0 5px;
 }
 
 .header-bar form label {

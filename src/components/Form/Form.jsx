@@ -78,7 +78,7 @@ const Form = () => {
           name="realm"
           placeholder="Choose your realm"
         />
-        <button type="submit" disabled={!isFormValid}>Search</button>
+        <button type="submit" className="btn" disabled={!isFormValid}>Search</button>
       </form>
     </div>
   )
