@@ -20,7 +20,11 @@ const Mounts = () => {
 
   const { region, realm, character } = params;
   useEffect(() => {
-    getMounts(region, realm, character).then(res => {
+    getMounts(
+      region.toLowerCase(),
+      realm.toLowerCase(),
+      character.toLowerCase()
+    ).then(res => {
       setUserMounts(res);
     })
     .catch(() => {

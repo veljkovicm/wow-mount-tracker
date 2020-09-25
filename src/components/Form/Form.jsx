@@ -40,7 +40,7 @@ const Form = () => {
     event.preventDefault();
 
     if(isFormValid) {
-      history.push(`/mounts/${userData.region}/${userData.realm}/${userData.character}`);
+      history.push(`/mounts/${userData.region}/${userData.realm}/${userData.character.toLowerCase()}`);
       history.go(0);
     }
   }
