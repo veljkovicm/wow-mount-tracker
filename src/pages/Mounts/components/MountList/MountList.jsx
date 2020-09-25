@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   MountItem,
-  ProgressBar,
+  Pagination,
 } from '../';
 
 import './style.css';
@@ -101,8 +101,12 @@ const MountList = (props) => {
       <div className="mount-list__wrapper">
         <MountItem mounts={filteredMounts} />
         <div className="mount-list__pagination-wrapper">
-          <button onClick={handlePage} name="previous" disabled={offset <= 0}>previous</button>
-          <button onClick={handlePage} name="next" disabled={page >= maxPage}>next</button>
+          <Pagination
+            offset={offset}
+            handlePage={handlePage}
+            maxPage={maxPage}
+            page={page}
+          />
         </div>
       </div>
     </div>
