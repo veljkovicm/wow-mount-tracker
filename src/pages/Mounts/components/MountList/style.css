@@ -4,11 +4,6 @@
   margin: 0 auto;
 }
 
-.mounts button {
-  font-family: semplicita-pro;
-  color: #f8b700;
-}
-
 .mount-list__wrapper {
   position: relative;
   max-width: 1320px;
@@ -17,68 +12,6 @@
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 40px;
-}
-
-.mounts button {
-  border: none;
-  background: none;
-  color: white;
-  cursor: pointer;
-  padding-bottom: 5px;
-}
-
-button.active {
-  border-bottom: 4px solid#f8b700;
-  color: white;
-}
-
-button:focus {
-  outline: none;
-}
-button:disabled {
-  cursor: not-allowed;
-}
-.controls-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin: 0 15px 15px;
-}
-
-.filters-wrapper {
-  display: inline-block;
-  color: #fff;
-}
-.filters-wrapper:after {
-  display: block;
-  width: 100%;
-  height: 2px;
-  content: "";
-  border-bottom:1px solid rgba(255,255,255,0.2);
-  margin-top: -4px;
-}
-
-.filters-wrapper button:first-child {
-  padding-left: 0;
-}
-.filters-wrapper button:last-child {
-  padding-right: 0;
-}
-
-.search-wrapper input {
-  width: 300px;
-  height: 40px;
-  border: 1px solid #f8b700;
-  transition: all 0.2s linear;
-  padding-left: 40px;
-  background: url('/search.png') no-repeat 10px center;
-  background-size: 20px;
-  color: #fff;
-}
-.search-wrapper input:hover,
-.search-wrapper input:focus {
-  border: 1px solid #fff;
-  outline: none;
 }
 
 .mount-list__pagination-wrapper {

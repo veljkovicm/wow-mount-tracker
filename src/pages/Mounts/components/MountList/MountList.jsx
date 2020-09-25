@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   MountItem,
   Pagination,
+  Controls,
 } from '../';
 
 import './style.css';
@@ -19,7 +20,7 @@ const MountList = (props) => {
   let count = userMounts ? userMounts.length : 0;
   let filteredMounts = mounts;
   let maxPage = 1;
-  const perPage = 3; //24
+  const perPage = 5; //24
 
   mounts.map((mount, i) => {
     if(userMounts.includes(mount.id)) {
@@ -80,24 +81,16 @@ const MountList = (props) => {
 
   return (
     <div className="mounts">
-      <div className="controls-wrapper">
-        <div className="filters-wrapper">
-          <p><b>Mounts:</b> {count} Mounts {filter === 'uncollected' ? 'Uncollected' : 'Collected'}</p>
-          <button onClick={handleButton} name="all" className={active === 'all' ? 'active' : ''}>All</button>
-          <button onClick={handleButton} name="collected" className={active === 'collected' ? 'active' : ''}>Collected</button>
-          <button onClick={handleButton} name="uncollected" className={active === 'uncollected' ? 'active' : ''}>Uncollected</button>
-        </div>
-        <ProgressBar collectedMounts={userMounts.length} totalMounts={mounts.length} />
-        <div className="search-wrapper">
-          <input
-            type="text"
-            name="search"
-            value={search}
-            onChange={handleSearch}
-            placeholder="Mount name"
-          />
-        </div>
-      </div>
+        <Controls
+          count={count}
+          filter={filter}
+          active={active}
+          search={search}
+          handleButton={handleButton}
+          handleSearch={handleSearch}
+          collectedMounts={userMounts.length}
+          totalMounts={mounts.length}
+        />
       <div className="mount-list__wrapper">
         <MountItem mounts={filteredMounts} />
         <div className="mount-list__pagination-wrapper">

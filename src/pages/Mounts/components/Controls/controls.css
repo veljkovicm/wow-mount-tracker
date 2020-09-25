@@ -1,3 +1,75 @@
+.controls-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 15px 15px;
+}
+
+/* BUTTONS */
+.controls-wrapper button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding-bottom: 5px;
+  font-family: semplicita-pro;
+  color: #f8b700;
+}
+
+.controls-wrapper button.active {
+  border-bottom: 4px solid#f8b700;
+  color: white;
+}
+
+.controls-wrapper button:focus {
+  outline: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+
+/* FILTERS */
+.filters-wrapper {
+  display: inline-block;
+  color: #fff;
+}
+.filters-wrapper:after {
+  display: block;
+  width: 100%;
+  height: 2px;
+  content: "";
+  border-bottom:1px solid rgba(255,255,255,0.2);
+  margin-top: -4px;
+}
+
+.filters-wrapper button:first-child {
+  padding-left: 0;
+}
+.filters-wrapper button:last-child {
+  padding-right: 0;
+}
+
+
+/* SEARCH */
+.search-wrapper input {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #f8b700;
+  transition: all 0.2s linear;
+  padding-left: 40px;
+  background: url('/search.png') no-repeat 10px center;
+  background-size: 20px;
+  color: #fff;
+}
+.search-wrapper input:hover,
+.search-wrapper input:focus {
+  border: 1px solid #fff;
+  outline: none;
+}
+
+
+/* PROGRESS BAR */
 .progress-bar__wrapper {
   position: relative;
   width: 200px;
