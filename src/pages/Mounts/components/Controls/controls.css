@@ -32,6 +32,10 @@ button:disabled {
 /* FILTERS */
 .filters-wrapper {
   display: inline-block;
+}
+
+.filters__label {
+  font-size: 13px;
   color: #fff;
 }
 .filters-wrapper:after {
