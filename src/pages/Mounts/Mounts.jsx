@@ -18,12 +18,15 @@ const Mounts = () => {
   const [ charData, setCharData ] = useState();
   const params = useParams();
 
-  const { region, realm, character } = params;
+  const region = params.region.toLowerCase();
+  const realm = params.realm.toLowerCase();
+  const character = params.character.toLowerCase();
+
   useEffect(() => {
     getMounts(
-      region.toLowerCase(),
-      realm.toLowerCase(),
-      character.toLowerCase()
+      region,
+      realm,
+      character
     ).then(res => {
       setUserMounts(res);
     })
