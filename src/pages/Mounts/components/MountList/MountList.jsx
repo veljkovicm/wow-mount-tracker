@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   MountItem,
@@ -13,10 +13,14 @@ const MountList = (props) => {
   const [ filter, setFilter ] = useState('collected');
   const [ active, setActive ] = useState('collected');
   const [ search, setSearch ] = useState('');
-  
-  let count = userMounts.length;
+  const [ offset, setOffset ] = useState(0);
+  const [ page, setPage ] = useState(1);
 
+  let count = userMounts ? userMounts.length : 0;
   let filteredMounts = mounts;
+  let maxPage = 1;
+  const perPage = 3; //24
+
   mounts.map((mount, i) => {
     if(userMounts.includes(mount.id)) {
       return mount.collected = true;
@@ -24,16 +28,28 @@ const MountList = (props) => {
       return mount.uncollected = true;
     }
   })
-  
-  if(filter) {
+
+  useEffect(() => {
+    setOffset(0);
+  }, [ filter ]);
+
+  if(filter === null) {
+    maxPage = Math.ceil(filteredMounts.length / perPage);
+  } else {
     filteredMounts = mounts.filter(mount => mount[filter] === true);
     count = filteredMounts.length;
+    maxPage = Math.ceil(filteredMounts.length / perPage);
   }
 
+  useEffect(() => {
+    maxPage = Math.ceil(filteredMounts.length / perPage);
+  }, [ maxPage ])
+
   if(search) {
-    filteredMounts = filteredMounts.filter(
+    const searchResult = filteredMounts.filter(
       mount => mount.name.toLowerCase().includes(search.toLowerCase())
     );
+    filteredMounts = searchResult;
   }
 
   const handleSearch = (event) => {
@@ -48,6 +64,19 @@ const MountList = (props) => {
       setFilter(null);
     }
   }
+
+  const handlePage = (event) => {
+    if(event.target.name === 'next') {
+      setOffset(offset + perPage);
+      setPage(page + 1)
+    } else {
+      setOffset(offset - perPage)
+      setPage(page - 1)
+    }
+  }
+
+  let pageMounts = filteredMounts.slice(offset, offset > 0 ? offset + perPage : perPage);
+  filteredMounts = pageMounts;
 
   return (
     <div className="mounts">
@@ -71,6 +100,10 @@ const MountList = (props) => {
       </div>
       <div className="mount-list__wrapper">
         <MountItem mounts={filteredMounts} />
+        <div className="mount-list__pagination-wrapper">
+          <button onClick={handlePage} name="previous" disabled={offset <= 0}>previous</button>
+          <button onClick={handlePage} name="next" disabled={page >= maxPage}>next</button>
+        </div>
       </div>
     </div>
   );
