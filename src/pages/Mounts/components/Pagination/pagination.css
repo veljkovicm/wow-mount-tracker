@@ -1,0 +1,45 @@
+.mount-list__pagination {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mount-list__pagination__button {
+  color: #f8b700;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 10px 13px;
+  display: block;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.mount-list__pagination__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.mount-list__pagination__button:hover {
+  background: #b06601;
+  color: #ffd36b;
+  cursor: pointer;
+}
+
+.btn-next:after {
+  content: " ›";
+  position: absolute;
+  right: 5px;
+  top: 9px;
+}
+
+.btn-prev:before {
+  content: "‹ ";
+  position: absolute;
+  left: 5px;
+  top: 9px;
+}
+

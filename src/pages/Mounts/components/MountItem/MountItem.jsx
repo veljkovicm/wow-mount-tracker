@@ -3,20 +3,18 @@ import PropTypes from 'prop-types';
 
 import './mountItem.css';
 
-const MountItem = (props) => {
-  const mounts = props.mounts;
+const MountItem = ({ mounts }) => {
   let markup = (
     mounts.map((mount, i) => {
-      return <div className={`mount-item ${mount.collected ? 'collected': ''}`} key={i}>
+      return <div className={`mount-item ${mount.collected ? 'collected': ''}`} key={mount.id}>
         <div
-          className="mount-item-image"
+          className="mount-item__image"
           style={{
             backgroundImage:`url(https://render-us.worldofwarcraft.com/npcs/zoom/creature-display-${mount.creature_displays[0].id}.jpg)`
           }}
-        >
-        </div>
+        />
         { mount.faction ? <img src={`/${mount.faction.name}.png`} alt="faction-symbol" /> : null }
-        <p>{mount.name}</p>
+        <p className="mount-item__name">{mount.name}</p>
       </div>
     })
   )

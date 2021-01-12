@@ -19,7 +19,7 @@
   color: #f8b700;
 }
 
-.mount-item-image {
+.mount-item__image {
   min-height: 185px;
   width: 100%;
   background-size: cover;
@@ -27,7 +27,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.mount-item:hover .mount-item-image {
+.mount-item:hover .mount-item__image {
   transform: scale(1.1);
 }
 
@@ -37,4 +37,11 @@
   right: 10px;
   opacity: 0.5;
   width: 70px;
+}
+
+.mount-item__name {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 48px;
 }

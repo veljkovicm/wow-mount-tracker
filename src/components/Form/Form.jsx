@@ -44,6 +44,7 @@ const Form = () => {
       history.go(0);
     }
   }
+
   const options = [
     {
         type: 'group',
@@ -55,7 +56,7 @@ const Form = () => {
         name: 'US',
         items: [ ...realmsUS ],
     },
-];
+  ];
 
 
   return (
@@ -77,8 +78,15 @@ const Form = () => {
           onChange={handleSelect}
           name="realm"
           placeholder="Choose your realm"
+          // printOptions="always"
         />
-        <button type="submit" className="btn" disabled={!isFormValid}>Search</button>
+        <button
+          type="submit"
+          className="btn"
+          disabled={!isFormValid}
+        >
+          Search
+        </button>
       </form>
     </div>
   )

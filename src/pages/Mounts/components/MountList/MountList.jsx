@@ -6,11 +6,9 @@ import {
   Controls,
 } from '../';
 
-import './style.css';
+import './mountList.css';
 
-const MountList = (props) => {
-  let { mounts, userMounts } = props;
-
+const MountList = ({ mounts, userMounts }) => {
   const [ filter, setFilter ] = useState('collected');
   const [ active, setActive ] = useState('collected');
   const [ search, setSearch ] = useState('');
@@ -20,9 +18,9 @@ const MountList = (props) => {
   let count = userMounts ? userMounts.length : 0;
   let filteredMounts = mounts;
   let maxPage = 1;
-  const perPage = 5; //24
+  const perPage = 24;
 
-  mounts.map((mount, i) => {
+  mounts.map((mount) => {
     if(userMounts.includes(mount.id)) {
       return mount.collected = true;
     } else {
@@ -88,8 +86,6 @@ const MountList = (props) => {
           search={search}
           handleButton={handleButton}
           handleSearch={handleSearch}
-          collectedMounts={userMounts.length}
-          totalMounts={mounts.length}
         />
       <div className="mount-list__wrapper">
         <MountItem mounts={filteredMounts} />
