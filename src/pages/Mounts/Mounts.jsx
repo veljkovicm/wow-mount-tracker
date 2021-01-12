@@ -62,7 +62,7 @@ const Mounts = () => {
         {!loading && !error ? <CharacterBar region={region} {...charData} /> : null}
       </Header>
       {/* TODO: Add 404 component */}
-      { error ? <p>Could not load character data!</p> : <MountList mounts={mountsArr} userMounts={userMounts} /> }
+      { error ? <p style={{ color: 'white' }}>Could not load character data!</p> : <MountList mounts={mountsArr} userMounts={userMounts} /> }
     </Fragment>
   )
 }
