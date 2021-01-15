@@ -13,7 +13,17 @@ const MountItem = ({ mounts }) => {
             backgroundImage:`url(https://render-us.worldofwarcraft.com/npcs/zoom/creature-display-${mount.creature_displays[0].id}.jpg)`
           }}
         />
-        { mount.faction ? <img src={`/${mount.faction.name}.png`} alt="faction-symbol" /> : null }
+        {
+          mount.faction
+            ?
+              <img
+                src={`/${mount.faction.name}.png`}
+                alt="faction-symbol"
+                className={`mount-item__faction-image ${mount.faction.name}`}
+                />
+            :
+              null 
+        }
         <p className="mount-item__name">{mount.name}</p>
       </div>
     })
