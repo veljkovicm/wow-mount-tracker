@@ -36,6 +36,12 @@
   align-items: center;
 }
 
+.header-bar .form-wrapper {
+  position: static;
+  transform: none;
+  margin-left: 80px;
+}
+
 .header-bar  .select-search {
   width: 200px;
 }
