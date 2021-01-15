@@ -10,6 +10,8 @@
   cursor: pointer;
   border: 1px solid #181818;
   position: relative;
+  -webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
+  -webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
 }
 .mount-item.collected {
   opacity: 1;
