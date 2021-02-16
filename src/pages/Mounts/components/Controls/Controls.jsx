@@ -11,11 +11,7 @@ const Controls = (props) => {
     search,
     handleSearch,
     handleButton,
-    totalMounts,
-    collectedMounts,
   } = props;
-
-  const percentage = ((collectedMounts / totalMounts) * 100).toFixed();
 
   return (
     <div className="controls-wrapper">
@@ -25,17 +21,6 @@ const Controls = (props) => {
           <button onClick={handleButton} name="all" className={active === 'all' ? 'active' : ''}>All</button>
           <button onClick={handleButton} name="collected" className={active === 'collected' ? 'active' : ''}>Collected</button>
           <button onClick={handleButton} name="uncollected" className={active === 'uncollected' ? 'active' : ''}>Uncollected</button>
-        </div>
-      </div>
-      <div>
-        <p className="progress-bar__label">Unique mounts collected</p>
-        <div className="progress-bar__notice-wrapper">
-          i
-          <span className="progress-bar__notice">Counts toward the mount collection achievements.</span>
-        </div>
-        <div className="progress-bar__wrapper">
-          <i>{collectedMounts} / {totalMounts}</i>
-          <div className="progress-bar__filler" style={{ width: `${percentage}%` }}></div>
         </div>
       </div>
       <div className="search-wrapper">
@@ -53,7 +38,7 @@ const Controls = (props) => {
 
 Controls.propTypes = {
   count: PropTypes.number.isRequired,
-  filter: PropTypes.string.isRequired,
+  filter: PropTypes.string,
   handleButton: PropTypes.func.isRequired,
   active: PropTypes.string.isRequired,
   handleSearch: PropTypes.func.isRequired,

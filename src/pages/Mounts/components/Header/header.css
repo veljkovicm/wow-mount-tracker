@@ -9,6 +9,10 @@
   padding: 10px 0;
 }
 
+.header-bar * {
+  z-index: 999;
+}
+
 .header-bar__logo a {
   display: block;
   max-width: 100px;
@@ -16,6 +20,7 @@
 
 .header-bar .form-wrapper {
   top: 50%;
+  margin-top: 10px;
 }
 
 .header-bar .btn {
@@ -31,15 +36,29 @@
   align-items: center;
 }
 
+.header-bar .form-wrapper {
+  position: static;
+  transform: none;
+  margin-left: 80px;
+}
+
 .header-bar  .select-search {
   width: 200px;
 }
 
 .header-bar form input {
   width: 200px;
-  margin: 0 5px;
+}
+
+.header-bar form input[type=text] {
+  width: 200px;
+  margin-right: 10px;
 }
 
 .header-bar form label {
   display: none;
+}
+
+.header-bar form > button {
+  margin-bottom: 15px;
 }

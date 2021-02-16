@@ -1,11 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+
 import './header.css';
 
-
-export default function Header(props) {
-  const { children } = props;
-
+export default function Header({ children }) {
   return (
     <div className="header-bar">
       <div className="header-bar__logo">

@@ -1,6 +1,8 @@
 import React  from 'react';
 import PropTypes from 'prop-types';
 
+import './pagination.css';
+
  const Pagination = (props) => {
    const {
     offset,
@@ -10,9 +12,23 @@ import PropTypes from 'prop-types';
    } = props;
 
   return (
-    <div className="mount-list__pagination-wrapper">
-      <button onClick={handlePage} name="previous" disabled={offset <= 0}>previous</button>
-      <button onClick={handlePage} name="next" disabled={page >= maxPage}>next</button>
+    <div className="mount-list__pagination">
+      <button
+        className="mount-list__pagination__button btn-prev"
+        onClick={handlePage}
+        name="previous"
+        disabled={offset <= 0}
+      >
+        previous
+      </button>
+      <button
+        className="mount-list__pagination__button btn-next"
+        onClick={handlePage}
+        name="next"
+        disabled={page >= maxPage}
+      >
+        next
+      </button>
     </div>
   )
 }

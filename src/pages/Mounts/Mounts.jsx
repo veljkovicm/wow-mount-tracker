@@ -12,7 +12,7 @@ import {
 
 
 const Mounts = () => {
-  const [ userMounts, setUserMounts ] = useState();
+  const [ userMounts, setUserMounts ] = useState([]);
   const [ loading, setLoading ] = useState(true);
   const [ error, setError ] = useState(false);
   const [ charData, setCharData ] = useState();
@@ -51,6 +51,10 @@ const Mounts = () => {
     mountsArr.push(mountsIndex[mount]);
   }
 
+  if(loading) {
+    return <Loading />;
+  }
+
   return (
     <Fragment>
       <Header>
@@ -58,7 +62,13 @@ const Mounts = () => {
         {!loading && !error ? <CharacterBar region={region} {...charData} /> : null}
       </Header>
       {/* TODO: Add 404 component */}
-      { loading ? <Loading /> : error ? <p>Not found!</p> : <MountList mounts={mountsArr} userMounts={userMounts} /> }
+      {
+        error
+          ?
+            <p style={{ color: 'white' }}>Could not load character data!</p>
+          :
+            <MountList mounts={mountsArr} userMounts={userMounts} />
+      }
     </Fragment>
   )
 }

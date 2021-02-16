@@ -11,6 +11,7 @@ export const getToken = async () => {
       grant_type: 'client_credentials',
     },
   });
+
   return accessToken.data.access_token;
 };
 
@@ -18,7 +19,7 @@ export const getToken = async () => {
 export const getMounts = async (region, realm, character) => {
   const token = await getToken();
 
-  const mounts = await axios.get(
+  const userMounts = await axios.get(
     `https://${region}.api.blizzard.com/profile/wow/character/${realm}/${character}/collections/mounts`, 
     {
       headers: {
@@ -30,13 +31,8 @@ export const getMounts = async (region, realm, character) => {
       }
     }
   );
-  let mountIDsArray = [];
 
-  const mountsArray = mounts.data.mounts;
-
-  for(let mount in mountsArray) {
-    mountIDsArray.push(mountsArray[mount].mount.id);
-  }
+  const mountIDsArray = userMounts.data.mounts.map((mount) => mount.mount.id);
 
   return mountIDsArray;
 }
@@ -56,7 +52,8 @@ export const getAvatar = async (region, realm, character) => {
       }
     }
   );
-  return charMedia.data.avatar_url;
+
+  return charMedia.data.assets[0].value;
 }
 
 export const getCharData = async (region, realm, character) => {
@@ -76,8 +73,8 @@ export const getCharData = async (region, realm, character) => {
       }
     }
   );
-  const avatarUrl = await getAvatar(region, realm, character);
 
+  const avatarUrl = await getAvatar(region, realm, character);
 
   if(charData.data.guild) {
     guild = charData.data.guild.name;
@@ -90,13 +87,13 @@ export const getCharData = async (region, realm, character) => {
 
   return {
     charClass: charData.data.character_class.name,
-    guild: guild,
     guildId: guildId,
     level: charData.data.level,
     avatar: avatarUrl,
-    title: title,
     activeSpec: charData.data.active_spec.name,
     name: charData.data.name,
     realm: charData.data.realm.name,
+    guild,
+    title,
   }
 }

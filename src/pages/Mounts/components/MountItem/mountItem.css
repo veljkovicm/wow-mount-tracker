@@ -10,6 +10,8 @@
   cursor: pointer;
   border: 1px solid #181818;
   position: relative;
+  -webkit-backface-visibility: hidden; /* add to fix webkit bug jitter */
+  -webkit-transform: perspective(1000px); /* add to fix webkit bug jitter */
 }
 .mount-item.collected {
   opacity: 1;
@@ -19,7 +21,7 @@
   color: #f8b700;
 }
 
-.mount-item-image {
+.mount-item__image {
   min-height: 185px;
   width: 100%;
   background-size: cover;
@@ -27,14 +29,21 @@
   transition: all 0.2s ease-in-out;
 }
 
-.mount-item:hover .mount-item-image {
+.mount-item:hover .mount-item__image {
   transform: scale(1.1);
 }
 
-.mount-item img {
+.mount-item .mount-item__faction-image {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 5px;
   opacity: 0.5;
-  width: 70px;
+  width: 50px;
+}
+
+.mount-item__name {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 48px;
 }

@@ -2,7 +2,7 @@ import axios from 'axios';
 import fs from 'fs';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { sortData } from '../helpers/helpers';
+import { sortData } from '../helpers/helpers.js';
 
 
 import { getToken } from './actions.js';
@@ -60,7 +60,7 @@ const getRealms = async () => {
   fs.writeFile(__dirname + '/realmsSortedSeparate.js', writeString, () => {});
 }
 
-getRealms();
+// getRealms();
 
 const getMountIndex = async () => {
   let mountsArr = [];
@@ -81,9 +81,9 @@ const getMountIndex = async () => {
 
   mountsArr = mounts.data.mounts;
 
-  // fs.writeFile(__dirname + '/mounts.json', JSON.stringify(mounts.data.mounts, null, 2), () => {});
+  fs.writeFile(__dirname + '/mounts.json', JSON.stringify(mounts.data.mounts, null, 2), () => {});
 }
-// getMountIndex();
+getMountIndex();
 
 const getCreatureData = async () => {
   let creaturesArr = [];
@@ -92,26 +92,24 @@ const getCreatureData = async () => {
   const fileData = JSON.parse(fs.readFileSync(__dirname + '/mounts.json', 'utf-8'));
 
   for(let mount in fileData) {
-    await sleep(1000);
-    console.log('mount ID',fileData[mount].id);
     await axios.get(
     `https://eu.api.blizzard.com/data/wow/mount/${fileData[mount].id}`,
     {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
       params: {
-        namespace: 'static-8.3.7_35114-eu',
+        namespace: 'static-eu',
         locale: 'en_GB',
+        access_token: token
       }
-    }
-    ).then(res => {
-      console.log(res.data);
+    })
+    .then((res) => {
       creaturesArr.push(res.data);
     })
-    .catch(err => console.log(err));
+    .catch((err) => {
+      console.log(err);
+    });
   };
+
   fs.writeFile(__dirname + '/creatures.json', JSON.stringify(creaturesArr, null, 2), () => {});
 }
 
-// getCreatureData();
+getCreatureData();
