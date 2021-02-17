@@ -15,11 +15,13 @@ const Controls = (props) => {
 
   return (
     <div className="controls-wrapper">
-      <div className="filters-wrapper">
-        <p><b>Mounts:</b> {count} Mounts {filter === 'uncollected' ? 'Uncollected' : 'Collected'}</p>
-        <button onClick={handleButton} name="all" className={active === 'all' ? 'active' : ''}>All</button>
-        <button onClick={handleButton} name="collected" className={active === 'collected' ? 'active' : ''}>Collected</button>
-        <button onClick={handleButton} name="uncollected" className={active === 'uncollected' ? 'active' : ''}>Uncollected</button>
+      <div>
+        <p className="filters__label"><b>Mounts:</b> {count} Mounts {filter === 'uncollected' ? 'Uncollected' : 'Collected'}</p>
+        <div className="filters-wrapper">
+          <button onClick={handleButton} name="all" className={active === 'all' ? 'active' : ''}>All</button>
+          <button onClick={handleButton} name="collected" className={active === 'collected' ? 'active' : ''}>Collected</button>
+          <button onClick={handleButton} name="uncollected" className={active === 'uncollected' ? 'active' : ''}>Uncollected</button>
+        </div>
       </div>
       <div className="search-wrapper">
         <input
