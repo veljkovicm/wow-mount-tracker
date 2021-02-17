@@ -2,13 +2,6 @@ form {
   display: flex;
 }
 
-.form-wrapper {
-  position: absolute;
-  top: calc(50% + 90px);
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .form-wrapper form > button {
   background: #8C0000;
   color: rgb(255,199,0);

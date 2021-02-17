@@ -5,11 +5,16 @@
   background-size: cover;
   position: relative;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-container form {
   display: flex;
   flex-direction: column;
+  margin-top: 250px;
 }
 
 .home-container button.btn {
@@ -23,6 +28,23 @@
 
 .home-container form input[type="text"]::placeholder {
   font-size: 0;
+}
+
+.home-link-container * {
+  color: #FFC700;
+}
+
+.home-link-container button {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #FFC700;
+  padding: 0;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+.home-link-container button:hover {
+  border-bottom: none;
 }
 
 @media only screen and (min-width: 1281px) {
