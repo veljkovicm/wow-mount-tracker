@@ -40,8 +40,6 @@ Controls.propTypes = {
   handleButton: PropTypes.func.isRequired,
   active: PropTypes.string.isRequired,
   handleSearch: PropTypes.func.isRequired,
-  collectedMounts: PropTypes.number.isRequired,
-  totalMounts: PropTypes.number.isRequired,
   search: PropTypes.string.isRequired,
 }
 
