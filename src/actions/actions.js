@@ -2,7 +2,7 @@ import axios from 'axios';
 // import config from '../config/config.js';
 
 export const getToken = async () => {
-  const accessToken =  await axios.get(`https://eu.battle.net/oauth/token`, {
+    const accessToken =  await axios.post(`https://eu.battle.net/oauth/token`, {}, {
     auth: {
       username: process.env.REACT_APP_PUBLIC_KEY,
       password: process.env.REACT_APP_SECRET_KEY,
